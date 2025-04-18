@@ -1,0 +1,27 @@
+{
+    "Composition": {
+      "label": "Solid or almost completely solid",
+      "score": 2
+    },
+    "Echogenicity": {
+      "label": "Hypoechoic",
+      "score": 2
+    },
+    "Shape": {
+      "label": "Taller-than-wide",
+      "score": 3
+    },
+    "Margin": {
+      "label": "Extra-thyroidal extension",
+      "score": 3
+    },
+    "Echogenic Foci": {
+      "label": "Punctate echogenic foci",
+      "score": 3
+    },
+    "Dimension": 1.7,
+    "Followup": "FNA",
+    "Explanation": 
+      "This nodule is solid in composition (+2 points), very hypoechoic in echogenicity as it is darker than the adjacent strap muscles (+3 points), is taller-than-wide in shape (+3 points), has lobulated margins (+2 points) and contains punctate echogenic foci (+3 points). This nodule receives a total of 13 points, placing it in TI-RADS level 5 (7+ points, highly suspicious). TI-RADS recommends FNA for TR5 nodules beginning at 1.0 cm. This nodule measured 1.7 cm, so it qualifies for FNA."
+
+  }
