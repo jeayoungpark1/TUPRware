@@ -799,8 +799,6 @@ class _FlashcardScreenState extends State<FlashcardScreen> {
     final List<Widget> logCards = [];
 
     for (final log in _answerLogs) {
-      final filename = log.imageName.split('/').last;
-
       final matchingCard = _cards.firstWhere(
         (card) => (card.image as AssetImage).assetName == log.imageName,
         orElse:
@@ -894,7 +892,10 @@ class _FlashcardScreenState extends State<FlashcardScreen> {
         Card(
           color: cardColor,
           child: ListTile(
-            title: Text(filename),
+            title: Text(
+              'Image ${_cards.indexWhere((card) => (card.image as AssetImage).assetName == log.imageName) + 1}',
+            ),
+
             subtitle: Text('Submitted: $formattedTime'),
             trailing: Text(
               trailingText,
@@ -921,7 +922,7 @@ class _FlashcardScreenState extends State<FlashcardScreen> {
 
                 ScaffoldMessenger.of(
                   context,
-                ).showSnackBar(SnackBar(content: Text('Jumped to $filename')));
+                ).showSnackBar(SnackBar(content: Text('Going Back to Question..')));
               }
             },
           ),
@@ -1724,23 +1725,22 @@ class _FlashcardScreenState extends State<FlashcardScreen> {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              
               const SizedBox(height: 10),
               Image(image: currentCard.image, fit: BoxFit.contain),
               if (currentCard.dimension != null)
-  Padding(
-    padding: const EdgeInsets.only(top: 4),
-    child: Align(
-      alignment: Alignment.centerRight,
-      child: Text(
-        '(max. dimension ${currentCard.dimension!.toStringAsFixed(1)} cm)',
-        style: const TextStyle(
-          fontSize: 14,
-          decoration: TextDecoration.underline,
-        ),
-      ),
-    ),
-  ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 4),
+                  child: Align(
+                    alignment: Alignment.centerRight,
+                    child: Text(
+                      '(max. dimension ${currentCard.dimension!.toStringAsFixed(1)} cm)',
+                      style: const TextStyle(
+                        fontSize: 14,
+                        decoration: TextDecoration.underline,
+                      ),
+                    ),
+                  ),
+                ),
               if (_submittedImages.contains(
                 (_cards[_currentIndex].image as AssetImage).assetName,
               ))
@@ -1821,7 +1821,6 @@ class _FlashcardScreenState extends State<FlashcardScreen> {
                   ],
                 ],
               ),
-              
             ],
           ),
 
