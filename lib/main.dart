@@ -1031,7 +1031,10 @@ class _FlashcardScreenState extends State<FlashcardScreen> {
             children: List.generate(_followupOptions.length, (index) {
               final label = _followupOptions[index];
               final isSelected = selectedIndex == index;
-              final showCorrect = _showAnswer && label == correctLabel;
+              final normalizedLabel = label.toLowerCase().trim();
+              final normalizedCorrect = correctLabel.toLowerCase().trim();
+              final showCorrect =
+                  _showAnswer && normalizedLabel == normalizedCorrect;
 
               return Row(
                 children: [
@@ -1145,10 +1148,13 @@ class _FlashcardScreenState extends State<FlashcardScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          _showStatsScreen ? 'Statistics' : 'Learning Mode',
-          style: appTitleStyle,
-        ),
+        title:
+            _showStatsScreen
+                ? Text('Statistics', style: appTitleStyle)
+                : Text(
+                  'Image ${_currentIndex + 1} of ${_cards.length}',
+                  style: appTitleStyle,
+                ),
         actions: [
           if (_showStatsScreen)
             TextButton(
@@ -1260,17 +1266,6 @@ class _FlashcardScreenState extends State<FlashcardScreen> {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              RichText(
-                text: TextSpan(
-                  style: const TextStyle(color: Colors.black, fontSize: 16),
-                  children: [
-                    TextSpan(
-                      text: 'Image ${_currentIndex + 1} of ${_cards.length}   ',
-                    ),
-                  ],
-                ),
-              ),
-
               const SizedBox(height: 10),
               Expanded(
                 flex: 2,
@@ -1729,16 +1724,23 @@ class _FlashcardScreenState extends State<FlashcardScreen> {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                'Image ${_currentIndex + 1} of ${_cards.length}'
-                '${currentCard.dimension != null ? '   (max. dimension ${currentCard.dimension!.toStringAsFixed(1)} cm)' : ''}',
-                style: const TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
+              
               const SizedBox(height: 10),
               Image(image: currentCard.image, fit: BoxFit.contain),
+              if (currentCard.dimension != null)
+  Padding(
+    padding: const EdgeInsets.only(top: 4),
+    child: Align(
+      alignment: Alignment.centerRight,
+      child: Text(
+        '(max. dimension ${currentCard.dimension!.toStringAsFixed(1)} cm)',
+        style: const TextStyle(
+          fontSize: 14,
+          decoration: TextDecoration.underline,
+        ),
+      ),
+    ),
+  ),
               if (_submittedImages.contains(
                 (_cards[_currentIndex].image as AssetImage).assetName,
               ))
@@ -1819,11 +1821,7 @@ class _FlashcardScreenState extends State<FlashcardScreen> {
                   ],
                 ],
               ),
-              if (currentCard.dimension != null)
-                Text(
-                  '(max. dimension ${currentCard.dimension!.toStringAsFixed(1)} cm)',
-                  style: const TextStyle(fontSize: 14),
-                ),
+              
             ],
           ),
 
