@@ -1,0 +1,25 @@
+{
+    "Composition": {
+      "label": "Solid or almost completely solid",
+      "score": 2
+    },
+    "Echogenicity": {
+      "label": "Isoechoic",
+      "score": 1
+    },
+    "Shape": {
+      "label": "Wider-than-tall",
+      "score": 0
+    },
+    "Margin": {
+      "label": "Smooth",
+      "score": 0
+    },
+    "Echogenic Foci": {
+      "label": "No echogenic foci",
+      "score": 0
+    },
+    "Dimension": 2.0,
+    "Followup": "Followup Ultrasound",
+    "Explanation": "This nodule is solid in composition (+2 points), isoechoic in echogenicity (+1 point), has a wider-than-tall shape (+0 points), and has smooth margins (+0 points). There are no echogenic foci (+0 points). This nodule receives a total of 3 points, placing it in TI-RADS level 3 (3 points, mildly suspicious). TI-RADS recommends FNA for TR3 nodules beginning at 2.5 cm and ultrasound surveillance for nodules measuring 1.5 – 2.4 cm. This nodule measured 2.0 cm, so follow-up ultrasound would be performed at 1, 3 and 5 years."
+  }

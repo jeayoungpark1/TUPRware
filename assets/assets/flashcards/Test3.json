@@ -1,0 +1,25 @@
+{
+    "Composition": {
+      "label": "Spongiform",
+      "score": 0
+    },
+    "Echogenicity": {
+      "label": "NA-Spongiform",
+      "score": 0
+    },
+    "Shape": {
+      "label": "NA-Spongiform",
+      "score": 0
+    },
+    "Margin": {
+      "label": "NA-Spongiform",
+      "score": 0
+    },
+    "Echogenic Foci": {
+      "label": "Posterior Cyst wall, not punctate",
+      "score": 0
+    },
+    "Dimension": 2.3,
+    "Followup": "No further followup",
+    "Explanation": "This nodule is spongiform in composition (+0 points) since at least 50% of the nodule volume is composed of small cystic spaces.4 Spongiform nodules are presumed benign in TI-RADS and are not subject to further feature assignment. Small echogenic foci which represent the posterior wall of tiny cysts (white arrow) should not be misinterpreted as punctate echogenic foci, which would otherwise add 3 points. Nodules are not allowed be classified as spongiform if other features such as macrocalcification or rim calcification are present.4 This nodule receives a total of 0 points, placing it in TI-RADS level 1 (benign). No FNA or ultrasound follow-up is recommended for this nodule."
+  }
